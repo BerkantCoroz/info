@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolyo- Berkant Coroz</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+.openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    color: #E0E0E0;
+    display: none;
+    z-index: 2;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1E1E1E;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    transition: width 0.3s;
+    overflow-x: hidden;
+    padding-top: 20px;
+    z-index: 1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.profile {
+    text-align: center;
+    padding: 20px;
+    
+}
+
+.profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+.profile h2 {
+    margin: 10px 0;
+    color: #E0E0E0;
+    
+}
+
+.profile h3{
+    color: #00fc6d;
+    font-size: medium;
+}
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: #1E1E1E;
+}
+
+nav ul li:hover {
+    background-color: #04f52cb6;
+}
+
+nav ul li i {
+    margin-right: 10px;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+h2 {
+    color: #E0E0E0;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Eğitim Bölümü */
+ul.education-list li {
+    background-color: #1E1E1E;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #00fc6d;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+ul.education-list li h3 {
+    margin-top: 0;
+    color: #E0E0E0;
+}
+
+ul.education-list li p {
+    margin: 5px 0 0;
+    color: #A0A0A0;
+}
+
+/* Tecrübe Bölümü */
+ul.experience-list li {
+    background-color: #1E1E1E;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #3498db;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+ul.experience-list li:hover {
+    background-color: #2A2A2A;
+}
+
+ul.experience-list li strong {
+    font-size: 18px;
+    color: #E0E0E0;
+}
+
+ul.experience-list li p {
+    margin-top: 10px;
+    color: #A0A0A0;
+}
+
+/* Yetenekler Bölümü */
+ul.skills-list li {
+    background-color: #1E1E1E;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: relative;
+    padding-left: 50px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+ul.skills-list li:before {
+    content: '✔';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #27ae60;
+    font-size: 18px;
+}
+
+/* Portfolyo Bölümü */
+.portfolio-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.portfolio-item {
+    background-color: #1E1E1E;
+    padding: 15px;
+    border-radius: 5px;
+    flex: 1 1 calc(33% - 40px);
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-item h3 {
+    margin-top: 0;
+    color: #E0E0E0;
+}
+
+.portfolio-item p {
+    color: #A0A0A0;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px #00fc6d;
+    transition: all 0.3s ease;
+}
+
+/* İletişim Bölümü */
+.contact-info {
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.contact-info p {
+    margin: 10px 0;
+    color: #E0E0E0;
+    font-size: 16px;
+}
+
+.contact-info a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Tasarım */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        padding-top: 60px;
+    }
+    .content {
+        margin-left: 0;
+        padding-top: 80px;
+    }
+    .openbtn {
+        display: block;
+    }
+    .portfolio-item {
+        flex: 1 1 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Açma Butonu -->
+    <span class="openbtn" id="openbtn" onclick="toggleSidebar()">☰</span>
+    
+
+    <div class="sidebar" id="sidebar">
+        <span class="closebtn" onclick="toggleSidebar()">×</span>
+        <div class="profile">
+            <img src="berkant.png" alt="Profil Fotoğrafı">
+            <h2>Berkant Coroz</h2>
+            <h3>Back-end Developer</h3>
+            <h4>Öğrenci</h4>
+        </div>
+        <nav>
+            <ul>
+                <li onclick="showSection('egitim')">Eğitim</li>
+                <li onclick="showSection('tecrube')">Tecrübe</li>
+                <li onclick="showSection('yetenekler')">Yetenekler</li>
+                <li onclick="showSection('portfolyo')">Portfolyo</li>
+                <li onclick="showSection('iletisim')">İletişim</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content" id="content">
+        <!-- Eğitim Bölümü -->
+        <div id="egitim" class="section active">
+            <h2>Eğitim</h2>
+            <ul class="education-list">
+                <li>
+                    <h3>Acunmedya Akademi</h3>
+                    <p><strong>Python Programlamaya Giriş </strong> | 2025 - Halen</p>
+                </li>
+                <li>
+                    <h3>Düzce Üniversitesi</h3>
+                    <p><strong>Radyo Televizyon Ve Sinema</strong> | 2024 - Halen</p>
+                </li>
+                <li>
+                    <h3>Zonguldak Mesleki Teknik Anadolu Lisesi</h3>
+                    <p><strong>Elektrik ve Elektronik Bölümü</strong> | 2020 - 2024</p>
+                </li>
+            </ul>
+        </div>
+        <!-- Tecrübe Bölümü -->
+        <!-- eks-pi-ri-yıns -->
+        <div id="tecrube" class="section"> 
+            <h2>Tecrübe</h2>
+            <ul class="experience-list">
+                <li>
+                    <strong>Acunmedya Akademi</strong> - Stajyer
+                    <p>Acunmedya Akademi Akademiq staj programına katıldım.</p>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- Yetenekler Bölümü -->
+        <div id="yetenekler" class="section">
+            <h2>Yetenekler</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>Web Otomasyon</li>
+            </ul>
+        </div>
+        <!-- Portfolyo Bölümü -->
+        <div id="portfolyo" class="section">
+            <h2>Portfolyo</h2>
+            <div class="portfolio-items">
+                <div class="portfolio-item">
+                    <h3>Amazon İndirimli Ürün Takip Botu </h3>
+                    <p>Amazon’daki belirli kategorilerde yer alan ve belirlenen indirim oranlarına sahip ürünleri otomatik olarak listeler.</p>
+                </div>
+                <div class="portfolio-item">
+                    <h3>X (Twitter) Otomatik İçerik Paylaşım Botu</h3>
+                    <p>X (Twitter) üzerindeki belirlenen hesaplardan en son gönderileri alır, yapay zeka ile anlamlandırır ve özgün bir biçimde otomatik olarak paylaşım yapar.</p>
+                </div>
+            </div>
+        </div>
+        <!-- İletişim Bölümü -->
+        <div id="iletisim" class="section">
+            <h2>İletişim</h2>
+            <div class="contact-info">
+                <p><strong>E-posta:</strong> <a href="mailto:berkantcoroz@icloud.com">berkantcoroz@icloud.com</a></p>
+                <p><strong>Adres:</strong> Zonguldak, Türkiye</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+<!--⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣥⣬⣿⣶⣶⣶⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣰⣾⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⣿⣿⣿⣿⣶⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣾⣿⣿⣿⡿⣫⡴⠖⠒⠒⠒⠒⠲⠤⣌⡉⠛⠿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡤⠶⠖⠒⠒⠲⠶⣾⣿⣿⡿⠃⣿⣿⣿⣿⣼⣅⡀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡦⣄⠙⠿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠶⠋⠥⠀⠀⢀⣀⣀⣠⣾⣿⣿⣿⠃⠀⢿⣿⣿⣿⡿⣿⣿⣷⣦⣄⣀⠀⠀⠀⢸⣿⣿⠃⠈⠳⢦⡈⠻⣿⣿⣿⣆⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣧⠴⠶⠚⠛⠛⢿⣿⣿⣿⣿⣿⣿⣿⠀⣴⠞⠛⢿⣿⣷⠀⠉⠛⠻⢿⣿⣷⣦⠀⣾⣿⣿⠀⠀⠀⠈⠳⣄⠘⣿⣿⣿⡙⢦⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⣠⠶⠾⠻⠿⢦⣄⣀⣤⣄⣀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣇⣿⣦⣤⡼⣸⣿⣧⡀⠀⠀⠀⠘⣿⣿⠀⠘⠿⣿⣷⣦⣄⠀⠀⠘⣆⠈⣿⣿⣷⣾⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢠⡾⠁⠀⠀⠀⠀⢀⣾⠁⠀⠀⠀⠀⠉⢉⣿⠛⢿⣿⣿⣿⣿⣿⢿⣯⠶⠛⢿⣿⣿⣦⡀⠀⢰⣿⣿⠀⠀⠀⠈⠙⠿⣿⣿⣶⣤⣹⡄⢹⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⢠⠟⠀⢀⣤⣤⣄⡀⣼⠃⠀⠀⠀⠀⠀⢀⡾⠁⠀⠀⠻⣿⣿⣿⣿⣦⡀⠀⠀⠀⠙⢿⣿⣿⣶⣾⣿⡏⠀⠀⠀⠀⠀⠀⠀⠙⠻⣿⣿⠁⣼⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀
+⠀⡾⠀⣰⣿⣿⣿⣿⣿⣷⣶⣶⣶⣶⣶⣶⣾⡅⠀⠀⠀⢀⡿⣿⣿⣿⣿⣷⣆⠀⠀⠀⠀⠉⠻⢿⣿⣿⣷⣦⣄⣀⡀⠀⠀⠀⠀⣀⣴⣧⣾⣿⣿⣿⣿⣷⣀⠀⠀⠀⠀⠀⠀
+⢀⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⣰⡟⠁⠈⢿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠉⢻⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢿⣿⣿⠟⢃⣿⣿⡛⠲⢦⣄⠀⠀
+⢸⡇⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡋⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣷⣤⣀⠀⠀⡟⠀⠀⠀⠉⠉⠛⠛⠛⣿⡇⣯⡀⢈⡏⠀⢀⣾⣿⣿⣧⠀⠀⠘⣷⠀
+⢸⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣧⣀⡀⠀⠀⠀⠀⠀⠀⠸⣿⣝⣿⡿⢃⣤⣿⣿⣿⣿⣿⡄⠀⠀⢹⡆
+⠘⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⣠⣾⡿⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣦⣤⣤⣤⣤⣾⣿⣿⣿⣿⣿⡟⠋⠻⣿⣇⠀⠀⠈⣧
+⠀⣧⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢡⡟⠁⠀⠘⣿⣿⣿⣿⡿⠛⢛⠿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⣿⣿⣿⣯⢠⡀⠀⠈⢿⣄⠀⠀⣿
+⠀⢸⡄⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⣰⠟⠀⠀⠀⠀⠘⣿⣿⡿⠁⠀⡜⠀⠈⣻⣿⣿⣿⣿⠋⣰⠋⣡⠴⠶⢬⡙⣿⣿⣿⡄⠙⢆⠀⠀⠻⣆⠀⣿
+⠀⠈⣷⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⣴⠟⠀⠀⠀⠀⠀⣰⢿⡟⠀⠀⡜⠁⠀⢠⣿⣿⣿⣿⡇⣠⡇⢸⠁⠈⠓⠤⢹⡜⣿⣿⣷⡀⠈⢣⠀⠀⠹⣦⣿
+⠀⠀⠸⣆⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⡶⢿⡇⠀⠀⠀⠀⢀⡼⣫⠟⠀⢀⠞⠀⠀⢠⣿⣿⣿⣿⣿⣇⠙⣧⠘⣷⣤⣀⣠⣾⢃⣿⣿⣿⣿⡄⠀⢣⠀⠀⠹⡏
+⠀⠀⠀⢻⡄⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⠁⠀⠸⣧⠀⠀⠀⣴⢏⡴⠋⠀⣠⠋⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣆⠘⢷⣌⡙⠛⢋⣥⣾⣿⣿⣿⣿⣿⡆⠈⡆⠀⠀⡇
+⠀⠀⠀⠀⢳⡀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣿⢀⣀⣼⢡⡟⠁⠀⡴⠁⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣬⣉⣭⣽⣿⣿⣿⣿⣿⣿⣿⡇⠀⠁⠀⠀⡇
+⠀⠀⠀⠀⠀⢻⣤⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⢀⡿⠉⠉⠁⣸⠇⠀⣸⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⣼⠁
+⠀⠀⠀⠀⠀⠀⠙⣦⡀⠹⢿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⣴⡇⠀⠀⢀⡿⠀⢀⡇⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠋⠀⠀⠀⣠⠞⠁⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⢻⣄⠀⠉⠛⠻⠿⠛⠁⠀⠀⠀⢠⡟⠀⠀⢀⡾⠁⠀⡸⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠟⠛⠛⠉⠉⠉⠙⠓⠦⠤⠤⠤⠖⠚⠉⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣤⣄⠀⠀⠀⠀⠀⢀⣴⣟⣀⣀⣴⠟⠁⠀⡰⠃⠀⢀⡾⠿⠿⠟⠛⠛⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠒⠒⠲⠛⠛⠙⢿⣍⠁⠀⠀⠀⠘⠁⠀⣠⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠳⠤⠤⠤⠬⠤⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀-->
+</html>
