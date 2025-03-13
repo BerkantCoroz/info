@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolyo- Berkant Coroz</title>
     <style>
         body {
@@ -12,14 +13,17 @@
 }
 
 .openbtn {
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
     position: fixed;
-    top: 15px;
-    left: 15px;
+    top: 10px;
+    left: 10px;
     color: #E0E0E0;
     display: none;
     z-index: 2;
+    background: rgba(30, 30, 30, 0.8);
+    padding: 8px 12px;
+    border-radius: 5px;
 }
 
 .sidebar {
@@ -28,59 +32,72 @@
     color: #fff;
     height: 100vh;
     position: fixed;
-    transition: width 0.3s;
+    transition: all 0.3s ease;
     overflow-x: hidden;
     padding-top: 20px;
     z-index: 1;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar .closebtn {
     position: absolute;
-    top: 0;
+    top: 10px;
     right: 15px;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .profile {
     text-align: center;
-    padding: 20px;
-    
+    padding: 15px;
 }
 
 .profile img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 100%;
+    border: 3px solid #00fc6d;
+    box-shadow: 0 0 10px rgba(0, 252, 109, 0.3);
 }
 
 .profile h2 {
     margin: 10px 0;
     color: #E0E0E0;
-    
+    font-size: 1.2rem;
 }
 
-.profile h3{
+.profile h3 {
     color: #00fc6d;
-    font-size: medium;
+    font-size: 1rem;
+    margin: 5px 0;
 }
 
+.profile h4 {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
-    padding: 15px 20px;
+    padding: 12px 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     background-color: #1E1E1E;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
 }
 
 nav ul li:hover {
     background-color: #04f52cb6;
+    border-left: 3px solid #00fc6d;
 }
 
 nav ul li i {
@@ -90,13 +107,19 @@ nav ul li i {
 .content {
     margin-left: 250px;
     padding: 20px;
-    transition: margin-left 0.3s;
+    transition: all 0.3s ease;
     min-height: 100vh;
     padding-top: 60px;
 }
 
 .section {
     display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .section.active {
@@ -108,102 +131,125 @@ h2 {
     border-bottom: 2px solid #444;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 /* Eğitim Bölümü */
 ul.education-list li {
     background-color: #1E1E1E;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
     border-left: 5px solid #00fc6d;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+ul.education-list li:hover {
+    transform: translateX(5px);
 }
 
 ul.education-list li h3 {
     margin-top: 0;
     color: #E0E0E0;
+    font-size: 1.1rem;
 }
 
 ul.education-list li p {
     margin: 5px 0 0;
     color: #A0A0A0;
+    font-size: 0.9rem;
 }
 
 /* Tecrübe Bölümü */
 ul.experience-list li {
     background-color: #1E1E1E;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
     border-left: 5px solid #3498db;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
 ul.experience-list li:hover {
     background-color: #2A2A2A;
+    transform: translateX(5px);
 }
 
 ul.experience-list li strong {
-    font-size: 18px;
+    font-size: 1.1rem;
     color: #E0E0E0;
 }
 
 ul.experience-list li p {
-    margin-top: 10px;
+    margin-top: 8px;
     color: #A0A0A0;
+    font-size: 0.9rem;
 }
 
 /* Yetenekler Bölümü */
 ul.skills-list li {
     background-color: #1E1E1E;
-    padding: 15px;
+    padding: 12px;
     margin-bottom: 10px;
     border-radius: 5px;
     position: relative;
-    padding-left: 50px;
+    padding-left: 40px;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+ul.skills-list li:hover {
+    transform: translateX(5px);
 }
 
 ul.skills-list li:before {
     content: '✔';
     position: absolute;
-    left: 15px;
+    left: 12px;
     top: 50%;
     transform: translateY(-50%);
     color: #27ae60;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* Portfolyo Bölümü */
 .portfolio-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
 }
 
 .portfolio-item {
     background-color: #1E1E1E;
     padding: 15px;
     border-radius: 5px;
-    flex: 1 1 calc(33% - 40px);
+    flex: 1 1 calc(33% - 30px);
     box-sizing: border-box;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
-}
-
-.portfolio-item h3 {
-    margin-top: 0;
-    color: #E0E0E0;
-}
-
-.portfolio-item p {
-    color: #A0A0A0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
 }
 
 .portfolio-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px #00fc6d;
-    transition: all 0.3s ease;
+    background-color: #2A2A2A;
+}
+
+.portfolio-item h3 {
+    margin-top: 0;
+    color: #E0E0E0;
+    font-size: 1.1rem;
+}
+
+.portfolio-item p {
+    color: #A0A0A0;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 /* İletişim Bölümü */
@@ -217,16 +263,17 @@ ul.skills-list li:before {
 .contact-info p {
     margin: 10px 0;
     color: #E0E0E0;
-    font-size: 16px;
+    font-size: 0.95rem;
 }
 
 .contact-info a {
     color: #3498db;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-    text-decoration: underline;
+    color: #00fc6d;
 }
 
 /* Responsive Tasarım */
@@ -234,19 +281,92 @@ ul.skills-list li:before {
     .sidebar {
         width: 0;
         padding-top: 60px;
+        transform: translateX(-100%);
     }
+
+    .sidebar.active {
+        width: 250px;
+        transform: translateX(0);
+    }
+
     .content {
         margin-left: 0;
-        padding-top: 80px;
+        padding: 15px;
+        padding-top: 70px;
     }
+
     .openbtn {
         display: block;
     }
+
     .portfolio-item {
         flex: 1 1 100%;
     }
+
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
 }
 
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile h2 {
+        font-size: 1.1rem;
+    }
+
+    .profile h3 {
+        font-size: 0.9rem;
+    }
+
+    nav ul li {
+        padding: 10px 15px;
+    }
+
+    .portfolio-item {
+        padding: 12px;
+    }
+
+    .contact-info {
+        padding: 15px;
+    }
+}
+
+/* Yatay mod için medya sorguları */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .sidebar {
+        padding-top: 50px;
+    }
+
+    .profile img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .content {
+        padding-top: 60px;
+    }
+
+    nav ul li {
+        padding: 8px 15px;
+    }
+}
     </style>
 </head>
 <body>
@@ -316,14 +436,14 @@ ul.skills-list li:before {
         <div id="portfolyo" class="section">
             <h2>Portfolyo</h2>
             <div class="portfolio-items">
-                <div class="portfolio-item">
+                <a href="https://youtu.be/SZpUFG5ZkoE?si=Vud1c-6qdtZS5Eqf" target="_blank" class="portfolio-item">
                     <h3>Amazon İndirimli Ürün Takip Botu </h3>
-                    <p>Amazon’daki belirli kategorilerde yer alan ve belirlenen indirim oranlarına sahip ürünleri otomatik olarak listeler.</p>
-                </div>
-                <div class="portfolio-item">
+                    <p>Amazon'daki belirli kategorilerde yer alan ve belirlenen indirim oranlarına sahip ürünleri otomatik olarak listeler.</p>
+                </a>
+                <a href="https://youtu.be/_xmQ8cGl5-M?si=uj_DT2in4pi3CLyc" target="_blank" class="portfolio-item">
                     <h3>X (Twitter) Otomatik İçerik Paylaşım Botu</h3>
                     <p>X (Twitter) üzerindeki belirlenen hesaplardan en son gönderileri alır, yapay zeka ile anlamlandırır ve özgün bir biçimde otomatik olarak paylaşım yapar.</p>
-                </div>
+                </a>
             </div>
         </div>
         <!-- İletişim Bölümü -->
@@ -335,31 +455,61 @@ ul.skills-list li:before {
             </div>
         </div>
     </div>
-    <script >
+    <script>
         function showSection(sectionId) {
-    var sections = document.getElementsByClassName('section');
-    for(var i = 0; i < sections.length; i++) {
-        sections[i].classList.remove('active');
-    }
-    document.getElementById(sectionId).classList.add('active');
-}
+            var sections = document.getElementsByClassName('section');
+            for(var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Mobil görünümde bölüm değiştirildiğinde sidebar'ı kapat
+            if (window.innerWidth <= 768) {
+                toggleSidebar();
+            }
+        }
 
-function toggleSidebar() {
-    var sidebar = document.getElementById("sidebar");
-    var openbtn = document.getElementById("openbtn");
-    var content = document.getElementById("content");
-    
-    if (sidebar.style.width === "0px" || sidebar.style.width === "0") {
-        sidebar.style.width = "250px";
-        content.style.marginLeft = "250px";
-        openbtn.style.display = "none";
-    } else {
-        sidebar.style.width = "0";
-        content.style.marginLeft = "0";
-        openbtn.style.display = "block";
-    }
-}
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var openbtn = document.getElementById("openbtn");
+            var content = document.getElementById("content");
+            
+            sidebar.classList.toggle("active");
+            
+            if (sidebar.classList.contains("active")) {
+                openbtn.style.display = "none";
+            } else {
+                openbtn.style.display = "block";
+            }
+        }
 
+        // Sayfa yüklendiğinde ekran genişliğine göre sidebar durumunu ayarla
+        window.addEventListener('load', function() {
+            var sidebar = document.getElementById("sidebar");
+            var openbtn = document.getElementById("openbtn");
+            
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove("active");
+                openbtn.style.display = "block";
+            } else {
+                sidebar.classList.add("active");
+                openbtn.style.display = "none";
+            }
+        });
+
+        // Ekran boyutu değiştiğinde sidebar durumunu güncelle
+        window.addEventListener('resize', function() {
+            var sidebar = document.getElementById("sidebar");
+            var openbtn = document.getElementById("openbtn");
+            
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove("active");
+                openbtn.style.display = "block";
+            } else {
+                sidebar.classList.add("active");
+                openbtn.style.display = "none";
+            }
+        });
     </script>
 </body>
 <!--⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -381,12 +531,9 @@ function toggleSidebar() {
 ⠀⢸⡄⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⣰⠟⠀⠀⠀⠀⠘⣿⣿⡿⠁⠀⡜⠀⠈⣻⣿⣿⣿⣿⠋⣰⠋⣡⠴⠶⢬⡙⣿⣿⣿⡄⠙⢆⠀⠀⠻⣆⠀⣿
 ⠀⠈⣷⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⣴⠟⠀⠀⠀⠀⠀⣰⢿⡟⠀⠀⡜⠁⠀⢠⣿⣿⣿⣿⡇⣠⡇⢸⠁⠈⠓⠤⢹⡜⣿⣿⣷⡀⠈⢣⠀⠀⠹⣦⣿
 ⠀⠀⠸⣆⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⡶⢿⡇⠀⠀⠀⠀⢀⡼⣫⠟⠀⢀⠞⠀⠀⢠⣿⣿⣿⣿⣿⣇⠙⣧⠘⣷⣤⣀⣠⣾⢃⣿⣿⣿⣿⡄⠀⢣⠀⠀⠹⡏
-⠀⠀⠀⢻⡄⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⠁⠀⠸⣧⠀⠀⠀⣴⢏⡴⠋⠀⣠⠋⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣆⠘⢷⣌⡙⠛⢋⣥⣾⣿⣿⣿⣿⣿⡆⠈⡆⠀⠀⡇
-⠀⠀⠀⠀⢳⡀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣿⢀⣀⣼⢡⡟⠁⠀⡴⠁⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣬⣉⣭⣽⣿⣿⣿⣿⣿⣿⣿⡇⠀⠁⠀⠀⡇
-⠀⠀⠀⠀⠀⢻⣤⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⢀⡿⠉⠉⠁⣸⠇⠀⣸⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⣼⠁
-⠀⠀⠀⠀⠀⠀⠙⣦⡀⠹⢿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⣴⡇⠀⠀⢀⡿⠀⢀⡇⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠋⠀⠀⠀⣠⠞⠁⠀
+⠀⠀⠀⢻⡄⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⠁⠀⠸⣧⠀⠀⠀⣴⢏⡴⠋⠀⣠⠋⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣬⣉⣭⣽⣿⣿⣿⣿⣿⣿⣿⡆⠈⡆⠀⠀⡇
+⠀⠀⠀⠀⢳⡀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣿⢀⣀⣼⢡⡟⠁⠀⡴⠁⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⣼⠁
+⠀⠀⠀⠀⠀⠙⣦⡀⠹⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⣴⡇⠀⠀⢀⡿⠀⢀⡇⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠋⠀⠀⠀⣠⠞⠁⠀
 ⠀⠀⠀⠀⠀⠀⠀⠈⢻⣄⠀⠉⠛⠻⠿⠛⠁⠀⠀⠀⢠⡟⠀⠀⢀⡾⠁⠀⡸⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠟⠛⠛⠉⠉⠉⠙⠓⠦⠤⠤⠤⠖⠚⠉⠁⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣤⣄⠀⠀⠀⠀⠀⢀⣴⣟⣀⣀⣴⠟⠁⠀⡰⠃⠀⢀⡾⠿⠿⠟⠛⠛⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠒⠒⠲⠛⠛⠙⢿⣍⠁⠀⠀⠀⠘⠁⠀⣠⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠳⠤⠤⠤⠬⠤⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀-->
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣤⣄⠀⠀⠀⠀⠀⢀⣴⣟⣀⣀⣴⠟⠁⠀⡰⠃⠀⢀⡾⠿⠿⠟⠛⠛⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀-->
 </html>
