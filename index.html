@@ -502,6 +502,47 @@
 
         .project-link-hint i { color: var(--accent); }
 
+        /* itch.io badge */
+        .itch-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fa5c5c;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            padding: 6px 12px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .itch-badge:hover {
+            background: #e04848;
+            box-shadow: 0 0 16px rgba(250,92,92,0.35);
+        }
+
+        .itch-badge i {
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .itch-badge-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .itch-badge-text small {
+            font-size: 0.62rem;
+            color: rgba(255,255,255,0.75);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .itch-badge-text strong {
+            font-size: 0.82rem;
+            color: #fff;
+        }
+
         /* Google Play badge */
         .gp-badge {
             display: inline-flex;
@@ -669,6 +710,7 @@
         .contact-icon.orange { background: rgba(245,158,11,0.1); color: #f59e0b; }
         .contact-icon.github { background: rgba(255,255,255,0.06); color: #e8e8f0; }
         .contact-icon.linkedin { background: rgba(10,102,194,0.12); color: #0a66c2; }
+        .contact-icon.itch     { background: rgba(250,92,92,0.12); color: #fa5c5c; }
 
         .contact-info-text small {
             font-size: 0.72rem;
@@ -894,6 +936,7 @@
             <a href="https://github.com/BerkantCoroz" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/berkant-coroz/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://play.google.com/store/apps/developer?id=PalakTech+Games" target="_blank" rel="noopener noreferrer" title="Google Play"><i class="fa-brands fa-google-play"></i></a>
+            <a href="https://berkqnt.itch.io" target="_blank" rel="noopener noreferrer" title="itch.io"><i class="fa-brands fa-itch-io"></i></a>
         </div>
     </div>
 </aside>
@@ -917,7 +960,7 @@
             </div>
             <div class="hero-stats">
                 <div class="stat"><strong>3+</strong><span>Yıl Deneyim</span></div>
-                <div class="stat"><strong>1</strong><span>Yayınlanan Oyun</span></div>
+                <div class="stat"><strong>2</strong><span>Yayınlanan Oyun</span></div>
                 <div class="stat"><strong>2+</strong><span>Tamamlanan Proje</span></div>
             </div>
         </div>
@@ -1038,6 +1081,31 @@
             </div>
         </div>
 
+        <!-- Featured: BrickBreaker -->
+        <div class="game-card">
+            <div class="game-card-inner">
+                <div class="game-icon-wrap" style="background: linear-gradient(135deg, #2a0a0a, #3a1a00);">🧱</div>
+                <div class="game-info">
+                    <span class="tag" style="color:#fa5c5c; background:rgba(250,92,92,0.12); border-color:rgba(250,92,92,0.25);"><i class="fa-solid fa-gamepad"></i>&ensp;itch.io'da Yayında</span>
+                    <h3>BrickBreaker</h3>
+                    <p>Klasik tuğla kırma oyununun modern yorumu. Topla tuğlaları kır, güçlendiricileri topla ve tüm seviyeleri temizle. Hızlı refleksler ve hassas kontroller gerektiren bağımlılık yapan bir arcade deneyimi.</p>
+                    <div class="game-features">
+                        <span>🧱 Tuğla Kırma</span>
+                        <span>⚡ Güçlendiriciler</span>
+                        <span>🏆 Seviye Sistemi</span>
+                        <span>🌐 HTML5 / Web</span>
+                    </div>
+                    <a class="itch-badge" href="https://berkqnt.itch.io/brickbreaker" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <div class="itch-badge-text">
+                            <small>itch.io'da Oyna</small>
+                            <strong>BrickBreaker</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <!-- Other projects -->
         <div class="portfolio-grid">
             <a href="https://youtu.be/SZpUFG5ZkoE?si=Vud1c-6qdtZS5Eqf" target="_blank" class="project-card">
@@ -1098,6 +1166,13 @@
                 <div class="contact-info-text">
                     <small>Google Play</small>
                     <span>PalakTech Games</span>
+                </div>
+            </a>
+            <a class="contact-card" href="https://berkqnt.itch.io" target="_blank" rel="noopener noreferrer">
+                <div class="contact-icon itch"><i class="fa-brands fa-itch-io"></i></div>
+                <div class="contact-info-text">
+                    <small>itch.io</small>
+                    <span>BerKqnT</span>
                 </div>
             </a>
             <div class="contact-card">
