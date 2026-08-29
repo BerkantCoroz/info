@@ -668,6 +668,64 @@
             color: var(--text-muted);
         }
 
+        /* Experience focus list */
+        .exp-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            margin: 14px 0 4px;
+        }
+
+        .exp-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 14px;
+            background: rgba(255,255,255,0.025);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            transition: all 0.2s;
+        }
+
+        .exp-list li:hover {
+            border-color: rgba(0,245,160,0.2);
+            background: rgba(0,245,160,0.04);
+            color: var(--text);
+        }
+
+        .exp-list li i {
+            color: var(--accent);
+            margin-top: 2px;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+
+        .exp-header .card-title { margin-bottom: 0; }
+
+        .exp-period {
+            font-size: 0.72rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            background: rgba(0,245,160,0.08);
+            border: 1px solid rgba(0,245,160,0.2);
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
         /* ── Contact ── */
         .contact-grid {
             display: grid;
@@ -975,7 +1033,7 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="card">
-                    <div class="card-meta">2026 — Halen</div>
+                    <div class="card-meta">2026 — 2028</div>
                     <div class="card-title">Bülent Ecevit Üniversitesi</div>
                     <div class="card-desc">Oyun Geliştirme ve Programlama Bölümü</div>
                     <span class="card-badge badge-green"><i class="fa-solid fa-circle-dot fa-xs"></i>Devam Ediyor</span>
@@ -1006,6 +1064,26 @@
             <h2>İş <span>Tecrübesi</span></h2>
             <p>Profesyonel deneyimlerim ve stajlarım</p>
         </div>
+
+        <div class="card">
+            <div class="exp-header">
+                <div>
+                    <div class="card-meta"><i class="fa-solid fa-building fa-xs"></i>&ensp;PalakTech</div>
+                    <div class="card-title">Co-Founder &amp; Software Developer</div>
+                </div>
+                <span class="exp-period">2024 — Halen</span>
+            </div>
+            <div class="card-desc">Oyun geliştirme, yapay zeka destekli web çözümleri, otomasyon ve masaüstü yazılımlar üreten bağımsız teknoloji girişimim.</div>
+            <ul class="exp-list">
+                <li><i class="fa-solid fa-gamepad"></i><span><strong style="color:var(--text)">RC Game Project</strong> — Mobil ve web tabanlı oyun projeleri geliştirme</span></li>
+                <li><i class="fa-solid fa-wand-magic-sparkles"></i><span><strong style="color:var(--text)">AI Website Coding</strong> — Yapay zeka destekli web sitesi tasarım ve kodlama</span></li>
+                <li><i class="fa-solid fa-robot"></i><span><strong style="color:var(--text)">Web Otomasyon &amp; Yazılım</strong> — Python tabanlı otomasyon botları ve web uygulamaları</span></li>
+                <li><i class="fa-solid fa-dice-d6"></i><span><strong style="color:var(--text)">Oyun Tasarım &amp; Kodlama</strong> — Unity ile oyun tasarımı, mekanik ve seviye geliştirme</span></li>
+                <li><i class="fa-solid fa-desktop"></i><span><strong style="color:var(--text)">Masaüstü Yazılım</strong> — Windows masaüstü uygulama geliştirme</span></li>
+            </ul>
+            <span class="card-badge badge-green"><i class="fa-solid fa-circle-dot fa-xs"></i>Aktif</span>
+        </div>
+
         <div class="card">
             <div class="card-meta"><i class="fa-solid fa-building fa-xs"></i>&ensp;Acunmedya Akademi</div>
             <div class="card-title">Stajyer — Akademiq Staj Programı</div>
