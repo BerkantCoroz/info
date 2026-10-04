@@ -883,6 +883,7 @@
             border-color: rgba(255,255,255,0.15);
         }
 
+
         .hero-stats {
             display: flex;
             gap: 40px;
@@ -907,6 +908,117 @@
         }
 
         /* ── Responsive ── */
+
+        /* BMO greeting link */
+        .bmo-greeting {
+            position: fixed;
+            right: 26px;
+            bottom: 24px;
+            z-index: 150;
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            color: var(--text);
+            text-decoration: none;
+            filter: drop-shadow(0 12px 24px rgba(0,0,0,.4));
+        }
+
+        .bmo-speech {
+            position: relative;
+            max-width: 220px;
+            padding: 13px 16px;
+            border: 1px solid rgba(0,245,160,.38);
+            border-radius: 15px 15px 4px 15px;
+            background: rgba(17,17,24,.96);
+            color: var(--text);
+            font-size: .82rem;
+            font-weight: 600;
+            line-height: 1.4;
+            transition: transform .2s, border-color .2s, color .2s;
+        }
+
+        .bmo-speech strong { color: var(--accent); }
+
+        .bmo-mini {
+            position: relative;
+            width: 76px;
+            height: 96px;
+            flex: 0 0 76px;
+            padding: 8px 7px 10px;
+            border: 2px solid rgba(225,255,245,.75);
+            border-radius: 17px 17px 14px 14px;
+            background: linear-gradient(145deg, #9debd2, #54bfa5);
+            box-shadow: inset -5px -5px 0 rgba(12,92,79,.16), 0 0 22px rgba(0,245,160,.16);
+            transition: transform .2s;
+        }
+
+        .bmo-mini-screen {
+            height: 59px;
+            border: 3px solid #23483f;
+            border-radius: 9px;
+            background: linear-gradient(#c2e7cb,#a5d7b3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            box-shadow: inset 0 0 0 2px rgba(255,255,255,.22);
+        }
+
+        .bmo-mini-eye { width: 6px; height: 7px; border-radius: 50%; background: #173d36; }
+        .bmo-mini-mouth { position: absolute; width: 11px; height: 5px; left: 50%; top: 42px; transform: translateX(-50%); border-bottom: 2px solid #173d36; border-radius: 50%; }
+        .bmo-mini-buttons { display: flex; justify-content: flex-end; gap: 6px; padding: 7px 4px 0; }
+        .bmo-mini-buttons i { width: 9px; height: 9px; border-radius: 50%; background: #f15c67; box-shadow: inset 0 -2px 0 rgba(90,0,0,.22); }
+        .bmo-mini-buttons i + i { background: #47a9df; }
+
+        .bmo-wave-arm {
+            position: absolute;
+            width: 20px;
+            height: 36px;
+            right: -14px;
+            top: 20px;
+            border: 7px solid #65c8ad;
+            border-left: 0;
+            border-bottom: 0;
+            border-radius: 0 18px 0 0;
+            transform-origin: 2px 28px;
+            animation: bmo-wave 1.2s ease-in-out infinite;
+        }
+
+        .bmo-wave-arm::after {
+            content: '';
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            right: -10px;
+            top: -9px;
+            border-radius: 50%;
+            background: #79d6bb;
+            border: 2px solid #b8f1df;
+        }
+
+        @keyframes bmo-wave {
+            0%, 100% { transform: rotate(0); }
+            50% { transform: rotate(19deg); }
+        }
+
+        .bmo-greeting:hover .bmo-mini { transform: translateY(-4px) rotate(2deg); }
+        .bmo-greeting:hover .bmo-speech { transform: translateY(-3px); border-color: var(--accent); color: var(--accent); }
+        .bmo-greeting:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 12px; }
+
+        @media (max-width: 600px) {
+            .bmo-greeting { right: 12px; bottom: 14px; gap: 8px; }
+            .bmo-speech { max-width: 166px; padding: 10px 12px; font-size: .72rem; }
+            .bmo-mini { width: 62px; height: 80px; flex-basis: 62px; padding: 6px; border-radius: 14px; }
+            .bmo-mini-screen { height: 49px; }
+            .bmo-mini-mouth { top: 34px; }
+            .bmo-mini-buttons { padding-top: 6px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bmo-wave-arm { animation: none; }
+            .bmo-greeting, .bmo-mini, .bmo-speech { transition: none; }
+        }
+
         @media (max-width: 900px) {
             .sidebar {
                 transform: translateX(-100%);
@@ -1265,6 +1377,16 @@
 
 </main>
 
+<a class="bmo-greeting" href="https://berkantcoroz.github.io/bmo/" target="_blank" rel="noopener noreferrer" aria-label="Portföyü BMO ile keşfet — BMO portföyünü yeni sekmede aç">
+    <span class="bmo-speech">Portföyü <strong>BMO ile keşfet!</strong></span>
+    <span class="bmo-mini" aria-hidden="true">
+        <span class="bmo-mini-screen"><i class="bmo-mini-eye"></i><i class="bmo-mini-eye"></i></span>
+        <i class="bmo-mini-mouth"></i>
+        <span class="bmo-mini-buttons"><i></i><i></i></span>
+        <i class="bmo-wave-arm"></i>
+    </span>
+</a>
+
 <script>
     const navIds = ['home', 'egitim', 'tecrube', 'yetenekler', 'portfolyo', 'iletisim'];
 
@@ -1293,7 +1415,7 @@
     }
 
     // Prevent default link behavior
-    document.querySelectorAll('nav ul li a').forEach(a => {
+    document.querySelectorAll('nav ul li a[href="#"]').forEach(a => {
         a.addEventListener('click', e => e.preventDefault());
     });
 </script>
